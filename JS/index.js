@@ -16,7 +16,7 @@ function initScene() {
     './pic/sky/images/right.png'];
   var cubeLoader = new THREE.CubeTextureLoader();
   // scene.background = cubeLoader.load(urls);
-  scene.background = new THREE.Color(0xda60cc);
+  scene.background = new THREE.Color(0xda99bc);
 }
 function initCamera() {
   camera = new THREE.PerspectiveCamera(45, w / h, 0.1, 10000);
