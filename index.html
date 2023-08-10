@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>墨咩咩生日快乐~</title>
+    <title>Happy Birthday & Everyday!</title>
     <style>
         body {
             height: 100%;
@@ -15,22 +15,61 @@
             overflow: hidden;
         }
 
-        .subtitle {
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             color: #ffffff;
             position: absolute;
-            top: 93%;
-            left: 3%;
+            font-size: 20px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 100%;
         }
 
-        /* .custom-cursor {
-            cursor: url('./pic/custom-cursor.png'), auto;
-        } */
+        .icon {
+            width: 60px;
+            height: 60px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .progress-full {
+            display: none;
+        }
     </style>
-    
+
 
 </head>
 
 <body>
+    <div class="container" id="fa_sub">
+        <svg t="1691631497271" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            p-id="17688" width="200" height="200">
+            <path
+                d="M398.904889 719.274667l-224.568889-224.540445a158.321778 158.321778 0 0 1 0-223.857778l224.568889-224.512a158.264889 158.264889 0 0 1 223.829333 0l224.568889 224.540445a158.264889 158.264889 0 0 1 0 223.829333l-224.568889 224.568889a158.264889 158.264889 0 0 1-223.829333 0"
+                fill="#F83CB6" p-id="17689"></path>
+            <path
+                d="M398.904889 957.070222l-224.568889-224.568889a158.293333 158.293333 0 0 1 0-223.800889l224.568889-224.540444a158.264889 158.264889 0 0 1 223.829333 0l224.568889 224.540444a158.236444 158.236444 0 0 1 0 223.800889l-224.568889 224.568889a158.264889 158.264889 0 0 1-223.829333 0"
+                fill="#A267F8" p-id="17690"></path>
+            <path
+                d="M622.734222 719.303111l217.543111-217.6-217.543111-217.543111a158.264889 158.264889 0 0 0-223.829333 0l-217.6 217.571556 217.6 217.571555a158.264889 158.264889 0 0 0 223.857778 0"
+                fill="#7E42B9" p-id="17691"></path>
+        </svg>
+
+        <label class="subtitle" id="subt"></label>
+    </div>
     <script src="././three.js/build/jquery.min.js"></script>
     <script src="./three.js/build/three.js"></script>
     <script src="././three.js/examples/js/controls/OrbitControls.js"></script>
