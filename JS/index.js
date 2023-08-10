@@ -32,8 +32,16 @@ function initRenderer() {
 
 }
 const cube = new THREE.Group();
+const dracoLoader = new THREE.DRACOLoader();
+dracoLoader.setDecoderPath('./three.js/examples/js/libs/draco/');
+dracoLoader.setDecoderConfig({ type: 'js' });
+dracoLoader.preload();
+
 const manager = new THREE.LoadingManager();
 const GLTFLoader = new THREE.GLTFLoader(manager);
+GLTFLoader.setDRACOLoader(dracoLoader);
+
+
 var animation_box;
 function initContent() {
   const overlayMaterial = new THREE.ShaderMaterial({
