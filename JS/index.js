@@ -1,26 +1,20 @@
+const subt = document.getElementById('subt');
+const loading = document.getElementById('fa_sub');
 var w = window.innerWidth
   || document.documentElement.clientWidth
   || document.body.clientWidth;
 var h = window.innerHeight
   || document.documentElement.clientHeight
   || document.body.clientHeight;
+console.log(w, h)
 var scene, camera, renderer, controls, light, selectObject;
 function initScene() {
   scene = new THREE.Scene();
-  const urls = [
-    './pic/sky/images/back.png',
-    './pic/sky/images/front.png',
-    './pic/sky/images/top.png',
-    './pic/sky/images/bottom.png',
-    './pic/sky/images/left.png',
-    './pic/sky/images/right.png'];
-  var cubeLoader = new THREE.CubeTextureLoader();
-  // scene.background = cubeLoader.load(urls);
   scene.background = new THREE.Color(0xda99bc);
 }
 function initCamera() {
   camera = new THREE.PerspectiveCamera(45, w / h, 0.1, 10000);
-  camera.position.set(89.71944579752005,125.47103407517945,349.899122525424);
+  camera.position.set(89.71944579752005, 125.47103407517945, 349.899122525424);
   camera.lookAt(new THREE.Vector3(0, 0, 0));
 }
 function initRenderer() {
@@ -70,6 +64,7 @@ function initContent() {
 
   manager.onProgress = function (_item, loaded, total) {
     const progressRatio = loaded / total; // 进度统计
+    subt.innerText = (progressRatio * 100).toFixed(2) + '%';
     // 加载完成
     if (progressRatio === 1) {
       overlayMaterial.uniforms.uAlpha.value = 0.8;
@@ -82,6 +77,8 @@ function initContent() {
           // 遮罩隐藏
           requestAnimationFrame(() => {
             scene.remove(overlay);
+            document.title = '墨咩咩生日快乐~'
+            loading.classList.add('progress-full');
           });
         }
       };
